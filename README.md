@@ -40,7 +40,7 @@ Ensure the following are installed:
 
 ### Environment Variables
 
-Create a `.env` file 
+Create a `.env` file using `.env.example`:
 
 ```env
 
