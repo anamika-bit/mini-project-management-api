@@ -91,7 +91,7 @@ These are mounted to:
 ### Verify Database
 
 ```shell
-docker exec -it <your_db_name> psql -U postgres -d <your_db_name>
+docker exec -it <container_name> psql -U postgres -d <your_db_name>
 
 \dt    -- list tables
 
