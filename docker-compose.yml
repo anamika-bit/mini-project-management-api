@@ -5,28 +5,31 @@ services:
     image: postgres:16-alpine
     container_name: project_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: project_db
+      # These variables are specific to the postgres image
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+      - ./src/db/migrations.sql:/docker-entrypoint-initdb.d/001_migrations.sql
+      - ./src/db/procedures.sql:/docker-entrypoint-initdb.d/002_procedures.sql
 
   api:
     build: .
     container_name: mini_project_api
     ports:
-      - "3000:3000"
+      - "${PORT}:${PORT}"
     environment:
       PORT: 3000
-      DB_USER: postgres
-      DB_PASSWORD: postgres
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: db
       DB_PORT: 5432
-      DB_NAME: project_db
-      REDIS_URL: redis://redis:6379
-      JWT_SECRET: your_jwt_secret_here
+      DB_NAME: ${DB_NAME}
+      REDIS_URL: ${REDIS_URL}
+      JWT_SECRET: ${JWT_SECRET}
     depends_on:
       - db
       - redis

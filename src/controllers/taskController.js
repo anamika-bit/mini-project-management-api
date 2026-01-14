@@ -1,4 +1,5 @@
 const pool = require("../db/index");
+const redisClient = require("../cache/redisClient");
 
 /**
  * Create Task under a Project
@@ -72,6 +73,15 @@ const listTasks = async (req, res) => {
     const page = req.body?.page || 1
     const limit  = req.body?.limit || 4;
 
+    // Create a unique cache key based on filters
+    const cacheKey = `tasks:${project_id || "all"}:${status || "all"}:${assigned_to || "all"}:page${page}:limit${limit}`;
+
+    // Check if cached data exists
+    const cachedData = await redisClient.get(cacheKey);
+    if (cachedData) {
+      return res.json(JSON.parse(cachedData));
+    }
+
     let query = `
       SELECT
         t.id,
@@ -122,6 +132,8 @@ const listTasks = async (req, res) => {
     values.push(parseInt(limit), (parseInt(page) - 1) * parseInt(limit));
 
     const result = await pool.query(query, values);
+
+    await redisClient.setEx(cacheKey, 30, JSON.stringify(response));
 
     res.json({ tasks: result.rows, page: parseInt(page), limit: parseInt(limit) });
   } catch (err) {
