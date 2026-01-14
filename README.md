@@ -4,13 +4,13 @@ A backend service to manage **Users, Projects, Tasks, and Comments** with JWT au
 
 This project demonstrates:
 - [x] RESTful API design
-- SQL relationships & joins
-- Stored procedures
-- JWT authentication
-- Pagination & filtering
-- Redis caching
-- Dockerized development
-- Basic Python scripting
+- [x] SQL relationships & joins
+- [x] Stored procedures
+- [x] JWT authentication
+- [x] Pagination & filtering
+- [x] Redis caching
+- [x] Dockerized development
+- [x] Basic Python scripting
 
 ---
 
@@ -23,9 +23,6 @@ This project demonstrates:
 - **Containerization**: Docker & Docker Compose
 - **Validation**: Joi
 - **Optional Script**: Python 3
-
----
-
 
 ---
 
