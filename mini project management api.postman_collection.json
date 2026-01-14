@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "1f2ecba1-8dba-443e-a904-75ccefe29d7b",
+		"name": "mini project management api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11597274"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"alice\",\n    \"email\": \"alice@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"alice@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Project Amzing\",\n    \"description\": \"Amzing project\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": \"7e3ffce5-c6e1-44fb-ae07-fcabd05ae2be\",\n    \"title\": \"Setup CI/CD\",\n    \"description\": \"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create validations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Setup CI/CD\",\n    \"description\": \"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create and assign user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_id\": \"b5436d1f-bc50-48c8-8424-698aa9e58bcc\",\n    \"title\": \"Implement Auth\",\n    \"assigned_to\": \"2a11421e-0546-4edb-8731-49b0f4451337\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assign user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"2a11421e-0546-4edb-8731-49b0f4451337\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/984ffde2-772a-4835-838a-5a4a32637c0f/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"984ffde2-772a-4835-838a-5a4a32637c0f",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update task status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4MzgzMTM5LCJleHAiOjE3NjgzODY3Mzl9.15AzUpZZ8eUYBqExJwHiCb08uvzOeMb6hptYeLpv2zI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : \"in_progress\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/9cd1fc4c-7fb3-4ca0-ae50-50f8593d8154/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"9cd1fc4c-7fb3-4ca0-ae50-50f8593d8154",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4Mzc5MzUyLCJleHAiOjE3NjgzODI5NTJ9.6M0IZotVFrRdc7vV4MJBCNxvExRmoxPITz59LnBmptE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"message\":\"CI/CD deployed successfully\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/984ffde2-772a-4835-838a-5a4a32637c0f/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"984ffde2-772a-4835-838a-5a4a32637c0f",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2OWRiZDJkLTdkYjktNDdlNi1hNDVjLWIyZjlhMTU4ZjYwZiIsImVtYWlsIjoiYWxpY2VAZ21haWwuY29tIiwiaWF0IjoxNzY4MzgzMTM5LCJleHAiOjE3NjgzODY3Mzl9.15AzUpZZ8eUYBqExJwHiCb08uvzOeMb6hptYeLpv2zI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assigned_to\":\"2a11421e-0546-4edb-8731-49b0f4451337\",\n    \"status\" : \"done\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks?page=1&limit=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "project_id",
+									"value": "b5436d1f-bc50-48c8-8424-698aa9e58bcc",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "todo",
+									"disabled": true
+								},
+								{
+									"key": "assigned_to",
+									"value": "...",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

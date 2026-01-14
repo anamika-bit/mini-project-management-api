@@ -2,16 +2,18 @@ const { Pool } = require("pg");
 require("dotenv").config();
 
 const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST || "localhost",      // use "db" in docker-compose
+  port: process.env.DB_PORT || 5432,
+  database: process.env.DB_NAME || "project_db",
+  user: process.env.DB_USER || "postgres",
+  password: process.env.DB_PASSWORD || "root",
 });
 
+// Test connection
 pool
   .query("SELECT 1")
   .then(() => console.log("PostgreSQL connected"))
-  .catch(console.error);
+  .catch((err) => console.error("PostgreSQL connection error:", err));
 
 module.exports = pool;
+
